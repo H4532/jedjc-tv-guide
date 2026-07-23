@@ -7,10 +7,12 @@ from PIL import Image, ImageDraw, ImageFont
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'TV_Channel_Guide.pdf'
 SITE_URL = 'https://h4532.github.io/jedjc-tv-guide/'
+LOGO_PATH = ROOT / 'assets' / 'holiday-inn-corniche-lockup.webp'
 
 C = [
 (1,'Hotel TV','قناة الفندق','information'),(2,'Saudi TV','قناة السعودية','saudi'),(3,'Thikrayat','قناة ذكريات','saudi'),(4,'SBC','إس بي سي','saudi'),(5,'Al Ekhbariya','قناة الإخبارية','saudi'),(6,'Saudia Alaan','السعودية الآن','saudi'),(7,'Quran Channel','قناة القرآن الكريم','saudi'),(8,'Sunnah Channel','قناة السنة النبوية','saudi'),(9,'KSA Sports 1','الرياضية السعودية 1','saudi'),(10,'KSA Sports 2','الرياضية السعودية 2','saudi'),(11,'KSA Sports 3','الرياضية السعودية 3','saudi'),(12,'Ministry of Health','وزارة الصحة','information'),(13,'Dubai Sports 1','دبي الرياضية 1','sports'),(14,'Dubai Sports 2','دبي الرياضية 2','sports'),(15,'Dubai One','دبي ون','entertainment'),(16,'Sky News Arabia Radio','راديو سكاي نيوز عربية','news'),(17,'Euronews','يورونيوز','news'),(18,'Cartoon Network Arabia','كرتون نتورك بالعربية','entertainment'),(19,'Sky News Arabia','سكاي نيوز عربية','news'),(20,'Al Jazeera Mubasher','الجزيرة مباشر','news'),(21,'Al Jazeera Mubasher 2','الجزيرة مباشر 2','news'),(22,'Al Jazeera','الجزيرة','news'),(23,'Al Jazeera English','الجزيرة الإنجليزية','news'),(24,'Al Jazeera Documentary','الجزيرة الوثائقية','documentary'),(25,'Asharq News','الشرق للأخبار','news'),(26,'Asharq Documentary','الشرق الوثائقية','documentary'),(27,'Asharq Discovery','الشرق ديسكفري','documentary'),(28,'National Geographic','ناشيونال جيوغرافيك','documentary'),(29,'Sama Dubai','سما دبي','entertainment'),(30,'Dubai TV','تلفزيون دبي','entertainment'),(31,'Zee Alwan','زي ألوان','entertainment'),(32,'Al Jadeed TV','الجديد','entertainment'),(33,'MTV Lebanon','إم تي في لبنان','entertainment'),(34,'One','ون','entertainment'),(35,'Arabica','أرابيكا','entertainment'),(36,'LBC International','إل بي سي إنترناشيونال','entertainment'),(37,'Dubai Racing 1','دبي ريسينغ 1','sports'),(38,'Dubai Racing 2','دبي ريسينغ 2','sports'),(39,'Tivi5Monde','تيفي 5 موند','documentary'),(40,'TV5Monde Maghreb-Orient','تي في 5 موند المغرب والمشرق','documentary'),(41,'Tivi5Monde','تيفي 5 موند','documentary'),(42,'France 24 Arabic','فرانس 24 العربية','news'),(43,'France 24 Français','فرانس 24 الفرنسية','news'),(44,'France 24 English','فرانس 24 الإنجليزية','news'),(45,'BBC Arabic','بي بي سي عربي','news'),(46,'BBC News','بي بي سي نيوز','news'),(47,'TRT Arabi','تي آر تي عربي','news'),(48,'TRT World','تي آر تي وورلد','news'),(49,'CGTN Arabic','سي جي تي إن العربية','news'),(50,'Al Arabiya','العربية','news'),(51,'Al Arabiya Business','العربية بزنس','news'),(52,'Al Mashhad','المشهد','news'),(53,'ERI TV','إري تي في','entertainment'),(54,'SSad TV','إس ساد تي في','news'),(55,'RTI 1','آر تي آي 1','entertainment'),(56,'Alaan TV','قناة الآن','entertainment'),(57,'Libya Al Wataniya','ليبيا الوطنية','entertainment'),(58,'LTV','إل تي في','entertainment'),(59,'ZAD TV','قناة زاد','entertainment'),(60,'Thmanyah 1','ثمانية 1','newmedia'),(61,'Thmanyah 2','ثمانية 2','newmedia'),(62,'Thmanyah 3','ثمانية 3','newmedia'),(63,'Alkass One','الكأس 1','sports'),(64,'Alkass Two','الكأس 2','sports'),(65,'Alkass Four','الكأس 4','sports'),(66,'MBC 1','إم بي سي 1','entertainment'),(67,'MBC 4','إم بي سي 4','entertainment'),(68,'MBC Drama','إم بي سي دراما','entertainment'),(69,'MBC Bollywood','إم بي سي بوليوود','entertainment'),(70,'MBC 2','إم بي سي 2','entertainment'),(71,'MBC Action','إم بي سي أكشن','entertainment'),(72,'MBC Max','إم بي سي ماكس','entertainment'),(73,'MBC 3','إم بي سي 3','entertainment'),(74,'Wanasah','وناسة','entertainment'),(75,'HDMI / Analogue','منفذ HDMI / بث تماثلي','information')]
 assert len(C) == 75 and all(ar.strip() for _,_,ar,_ in C)
+assert LOGO_PATH.exists(), f'Missing Option 3 logo: {LOGO_PATH}'
 CH = {n:(n,en,ar,cat) for n,en,ar,cat in C}
 
 W,H=1240,1754
@@ -18,8 +20,11 @@ GREEN='#00483d'; GREEN2='#0b6757'; PALE='#e3eeeb'; WHITE='#fff'; BG='#f6f6f2'; I
 FR='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'; FB='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'; FS='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf'
 
 def font(path,size): return ImageFont.truetype(path,size)
-F={'brand':font(FB,26),'prop':font(FR,12),'title':font(FS,54),'atitle':font(FB,28),'caps':font(FB,13),'sec':font(FB,16),'num':font(FS,28),'name':font(FB,18),'ar':font(FR,13),'foot':font(FR,11),'qrhead':font(FS,25),'qrtext':font(FR,13)}
+F={'title':font(FS,49),'atitle':font(FB,27),'caps':font(FB,13),'sec':font(FB,16),'num':font(FS,28),'name':font(FB,18),'ar':font(FR,13),'foot':font(FR,11),'qrhead':font(FS,25),'qrtext':font(FR,13)}
 LABEL={'information':('INFORMATION','معلومات الفندق'),'saudi':('SAUDI ARABIA','القنوات السعودية'),'sports':('SPORTS','رياضة'),'news':('NEWS','أخبار'),'documentary':('DOCUMENTARY & CULTURE','وثائقيات وثقافة'),'entertainment':('ENTERTAINMENT & FAMILY','ترفيه وعائلة'),'newmedia':('NEW MEDIA','إعلام جديد')}
+LOGO_GREEN = Image.open(LOGO_PATH).convert('RGBA')
+LOGO_WHITE = Image.new('RGBA', LOGO_GREEN.size, (255,255,255,0))
+LOGO_WHITE.putalpha(LOGO_GREEN.getchannel('A'))
 
 def text(d,xy,s,fo,fill,anchor='la',rtl=False):
     kw={}
@@ -31,10 +36,12 @@ def rr(d,box,r,fill,outline=None,w=1): d.rounded_rectangle(box,radius=r,fill=fil
 def page_header(num,en,ar):
     im=Image.new('RGB',(W,H),BG); d=ImageDraw.Draw(im)
     d.rectangle((0,0,W,240),fill=GREEN); d.ellipse((W-270,-110,W+80,180),fill=GREEN2)
-    rr(d,(70,55,138,123),15,None,WHITE,2); text(d,(104,90),'H',font(FS,42),WHITE,'mm')
-    text(d,(160,72),'Holiday Inn',F['brand'],WHITE); text(d,(160,103),'JEDDAH CORNICHE',F['prop'],'#dce7e4')
-    text(d,(W-120,68),f'TV GUIDE  /  0{num}',F['caps'],'#dce7e4','ra')
-    text(d,(70,178),en,F['title'],WHITE); text(d,(W-70,183),ar,F['atitle'],WHITE,'ra',True)
+    logo=LOGO_WHITE.copy(); logo.thumbnail((132,178),Image.Resampling.LANCZOS)
+    im.paste(logo,(58,22),logo)
+    d.line((210,42,210,198),fill=GOLD,width=3)
+    text(d,(238,112),en,F['title'],WHITE,'lm')
+    text(d,(W-70,180),ar,F['atitle'],WHITE,'rm',True)
+    text(d,(W-70,56),f'TV GUIDE  /  0{num}',F['caps'],'#dce7e4','ra')
     return im,d
 
 def section(d,x,y,w,key):
@@ -87,4 +94,4 @@ for i,im in enumerate(pages):
         p.insert_link({'kind':fitz.LINK_URI,'from':rect,'uri':SITE_URL})
 pdf.save(OUT,garbage=4,deflate=True); pdf.close()
 chk=fitz.open(OUT); assert chk.page_count==3 and any(x.get('uri')==SITE_URL for x in chk[0].get_links()); chk.close()
-print(f'Built {OUT} with 75/75 Arabic channel names')
+print(f'Built {OUT} with Option 3 logo and 75/75 Arabic channel names')
