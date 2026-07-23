@@ -1,0 +1,33 @@
+{
+  "pageTitleEn": "Hotel Events",
+  "pageTitleAr": "فعاليات الفندق",
+  "eyebrowEn": "What's Happening",
+  "eyebrowAr": "ماذا يحدث في الفندق",
+  "descriptionEn": "Discover upcoming hotel activities, dining experiences and special occasions.",
+  "descriptionAr": "اكتشف أنشطة الفندق وتجارب الطعام والمناسبات الخاصة القادمة.",
+  "items": [
+    {
+      "id": "event-template",
+      "titleEn": "Event title",
+      "titleAr": "عنوان الفعالية",
+      "descriptionEn": "Replace this text with the approved event description.",
+      "descriptionAr": "استبدل هذا النص بوصف الفعالية المعتمد.",
+      "image": "../placeholder.svg",
+      "imageAltEn": "Hotel event image",
+      "imageAltAr": "صورة فعالية الفندق",
+      "tagEn": "Hotel event",
+      "tagAr": "فعالية الفندق",
+      "startDate": "",
+      "endDate": "",
+      "locationEn": "Holiday Inn Jeddah Corniche",
+      "locationAr": "هوليداي إن جدة الكورنيش",
+      "timeEn": "",
+      "timeAr": "",
+      "ctaLabelEn": "Event details",
+      "ctaLabelAr": "تفاصيل الفعالية",
+      "ctaUrl": "",
+      "featured": false,
+      "active": false
+    }
+  ]
+}
