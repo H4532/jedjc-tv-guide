@@ -24,6 +24,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
+      - name: Restore Option 3 brand asset
+        run: cat assets/logo-option3.part* | base64 --decode > assets/holiday-inn-corniche-lockup.webp
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
@@ -36,12 +39,13 @@ jobs:
           python -m pip install --disable-pip-version-check "PyMuPDF==1.26.3" "qrcode[pil]==8.2"
           python -c "from PIL import features; assert features.check('raqm'), 'Arabic text shaping support is unavailable'"
 
-      - name: Build validated bilingual PDF
+      - name: Build validated branded bilingual PDF
         run: python tools/build_pdf.py
 
       - name: Remove deployment source files
         run: |
           rm -f TV_Channel_Guide.pdf.b64
+          rm -f assets/logo-option3.part*
           rm -rf tools
 
       - name: Configure Pages
