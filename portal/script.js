@@ -13,7 +13,6 @@ const text = {
     all: "All",
     assistanceTitle: "Need assistance?",
     assistanceCopy: "Contact Reception from your room phone.",
-    reception: "Reception",
     footer: "Available throughout your stay",
     empty: "No matching service was found."
   },
@@ -24,7 +23,6 @@ const text = {
     all: "الكل",
     assistanceTitle: "هل تحتاج إلى مساعدة؟",
     assistanceCopy: "يرجى التواصل مع الاستقبال من هاتف الغرفة.",
-    reception: "الاستقبال",
     footer: "متاح طوال فترة إقامتكم",
     empty: "لم يتم العثور على خدمة مطابقة."
   }
@@ -69,9 +67,6 @@ function renderStaticText() {
   document.getElementById("portal-search").placeholder = copy.search;
   document.getElementById("assistance-title").textContent = copy.assistanceTitle;
   document.getElementById("assistance-copy").textContent = copy.assistanceCopy;
-  document.getElementById("reception-number").textContent = hotel.reception || "0";
-  document.getElementById("reception-link").href = `tel:${hotel.reception || "0"}`;
-  document.getElementById("reception-link").firstChild.textContent = `${copy.reception} `;
   document.getElementById("footer-copy").textContent = copy.footer;
 }
 
