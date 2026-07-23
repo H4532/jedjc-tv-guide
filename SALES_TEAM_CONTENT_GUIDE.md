@@ -8,22 +8,53 @@ This guide explains how approved Sales team members manage photos and content fo
 
 ## Access
 
-Each Sales team member needs an individual GitHub account. The repository owner must add that username as a collaborator to `H4532/jedjc-tv-guide`.
+The Portal Administration and Sales Content Center pages use the fixed page login supplied by the hotel administrator.
 
-GitHub Pages is a static hosting service. It does not support a separate Sales login or folder-only permissions. A collaborator with write access can edit the repository, so access should be granted only to authorized users.
+This login is a browser-side gate because GitHub Pages is static hosting. It hides the management interface from casual visitors, but it is not a replacement for server-side authentication.
+
+Every Sales team member still needs an individual GitHub account. The repository owner must add that username as a collaborator to `H4532/jedjc-tv-guide` before the employee can upload photos or publish changes.
+
+## Required images for every promotion or event
+
+Upload two approved images using the same base file name:
+
+### Desktop image
+
+- 1600 × 900 pixels
+- 16:9 landscape
+- WebP preferred; JPG accepted
+- Target size below 500 KB
+- Example: `weekend-brunch-august-2026-desktop.webp`
+
+### Mobile image
+
+- 1080 × 1350 pixels
+- 4:5 portrait
+- WebP preferred; JPG accepted
+- Target size below 400 KB
+- Example: `weekend-brunch-august-2026-mobile.webp`
+
+The website automatically selects the mobile image on phones and the desktop image on tablets, laptops, and larger screens.
 
 ## Publishing a promotion
 
 1. Open the Sales Content Center.
-2. Select **Upload promotion photos**.
-3. Upload an approved JPG, PNG or WebP image.
-4. Use a lowercase file name with hyphens, such as `weekend-brunch-august-2026.jpg`.
+2. Select **Upload both promotion photos**.
+3. Upload the matching desktop and mobile files.
+4. Use lowercase file names with hyphens.
 5. Select **Edit promotion details**.
 6. Copy the template item inside `offers/promotions/data.json`.
 7. Update the English and Arabic content.
-8. Set the image value to `images/weekend-brunch-august-2026.jpg`.
+8. Set both image values:
+
+```json
+"imageDesktop": "images/weekend-brunch-august-2026-desktop.webp",
+"imageMobile": "images/weekend-brunch-august-2026-mobile.webp"
+```
+
 9. Set `active` to `true`.
 10. Commit the changes.
+11. Test the live page on both a phone and a desktop.
 
 ## Publishing an event
 
@@ -41,7 +72,8 @@ Follow the same process using:
   "titleAr": "العنوان بالعربية",
   "descriptionEn": "English description",
   "descriptionAr": "الوصف بالعربية",
-  "image": "images/photo-name.jpg",
+  "imageDesktop": "images/photo-name-desktop.webp",
+  "imageMobile": "images/photo-name-mobile.webp",
   "imageAltEn": "English image description",
   "imageAltAr": "وصف الصورة بالعربية",
   "tagEn": "Promotion",
@@ -67,13 +99,13 @@ Follow the same process using:
 - Leave either date blank when no boundary is required.
 - Set `active` to `false` to hide an item immediately.
 
-## Image standard
+## Image content rules
 
-- Recommended dimensions: 1200 × 900 pixels.
-- Recommended aspect ratio: 4:3 landscape.
-- Use JPG, PNG or WebP.
+- Keep important text, logos, and faces away from the outer edges.
+- Do not reuse the desktop crop as the phone image when text becomes too small.
 - Use approved hotel branding and content only.
 - Do not upload guest personal information or images without the required approval.
+- Compress files before uploading to keep the guest portal fast on mobile networks.
 
 ## Deployment
 
