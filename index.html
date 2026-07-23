@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Bilingual guest TV channel guide for Holiday Inn Jeddah Corniche." />
+    <meta name="theme-color" content="#00483e" />
+    <title>TV Channel Guide | Holiday Inn Jeddah Corniche</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <nav class="topbar" aria-label="Hotel television guide">
+          <a class="brand" href="#top" aria-label="Holiday Inn Jeddah Corniche">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span>
+              <strong>Holiday Inn</strong>
+              <small>Jeddah Corniche</small>
+            </span>
+          </a>
+          <div class="nav-actions">
+            <a class="pdf-link" href="TV_Channel_Guide.pdf" download>
+              <span>Download PDF</span>
+              <small lang="ar" dir="rtl">تحميل الدليل</small>
+            </a>
+            <div class="welcome">
+              <span>Welcome to your stay</span>
+              <b lang="ar" dir="rtl">أهلاً بكم</b>
+            </div>
+          </div>
+        </nav>
+        <section class="hero-copy" id="top">
+          <div>
+            <p class="eyebrow">IN-ROOM ENTERTAINMENT</p>
+            <h1>TV channel guide</h1>
+            <p class="arabic-title" lang="ar" dir="rtl">دليل قنوات التلفزيون</p>
+            <p class="intro">
+              Find your favourite channel by number, name, or category.
+              Saudi channels are listed first for easy access.
+            </p>
+          </div>
+          <div class="hero-number" aria-label="75 channels available">
+            <strong>75</strong>
+            <span>channels</span>
+            <small lang="ar" dir="rtl">قناة متاحة</small>
+          </div>
+        </section>
+      </header>
+
+      <section class="finder" aria-label="Find a channel">
+        <label class="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="channel-search" type="search" placeholder="Search name or channel number"
+            aria-label="Search by channel name or number" autocomplete="off" />
+          <small lang="ar" dir="rtl">ابحث بالاسم أو الرقم</small>
+        </label>
+        <div class="filters" id="filters" aria-label="Channel categories"></div>
+      </section>
+
+      <section class="channel-section">
+        <div class="section-heading">
+          <div>
+            <p id="section-label">Complete channel lineup</p>
+            <h2 id="channel-count">75 channels</h2>
+          </div>
+          <span id="section-label-ar" lang="ar" dir="rtl">قائمة القنوات الكاملة</span>
+        </div>
+        <div class="channel-grid" id="channel-grid" aria-live="polite"></div>
+        <div class="empty" id="empty-state" hidden>
+          <strong>No channel found</strong>
+          <span lang="ar" dir="rtl">لم يتم العثور على قناة</span>
+          <button id="show-all" type="button">Show all channels</button>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          <strong>Need assistance?</strong>
+          <span>Contact Reception from your room phone.</span>
+        </div>
+        <div lang="ar" dir="rtl">
+          <strong>هل تحتاج إلى مساعدة؟</strong>
+          <span>يرجى التواصل مع الاستقبال من هاتف الغرفة.</span>
+        </div>
+        <p>Channel availability and programming may change without notice.</p>
+      </footer>
+    </main>
+  </body>
+</html>
