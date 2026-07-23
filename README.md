@@ -15,6 +15,12 @@ A bilingual, mobile-friendly hotel guest portal and TV channel guide for Holiday
 
 The site deploys automatically through GitHub Pages after every update to the `main` branch.
 
+## Administration access
+
+The Portal Administration and Sales Content Center pages include a fixed browser-side login gate and a sign-out action.
+
+Because GitHub Pages is static hosting, this gate is intended to prevent casual anonymous access to the management interface. It is not server-side authentication. Actual upload, edit and publishing actions remain protected by GitHub account and repository permissions.
+
 ## General portal administration
 
 Guest-facing service links are stored in `portal/content.json`. The administrator page links directly to GitHub's protected editor. Only the repository owner or approved collaborators can commit changes.
@@ -36,9 +42,16 @@ Sales-managed content is separated into two public pages:
 - `offers/promotions/` for current promotions
 - `offers/events/` for hotel events
 
-Each page supports:
+Each promotion or event requires a responsive image pair:
 
-- Approved JPG, PNG and WebP photos
+- Desktop: 1600 × 900 pixels, 16:9 landscape
+- Mobile: 1080 × 1350 pixels, 4:5 portrait
+- WebP preferred, JPG accepted
+
+The guest page automatically selects the correct image for the screen size.
+
+Each page also supports:
+
 - English and Arabic titles and descriptions
 - Start and end dates
 - Automatic hiding before or after the publishing period
@@ -51,7 +64,7 @@ Sales management shortcuts are available at `sales-admin/`. Detailed instruction
 
 ## Sales access limitation
 
-GitHub Pages is static hosting and does not provide a separate Sales login or folder-only permissions. Each approved Sales team member needs an individual GitHub account and collaborator access to this repository. Collaborator access should only be granted to authorized users.
+Each approved Sales team member needs an individual GitHub account and collaborator access to this repository. GitHub Pages does not provide folder-only collaborator permissions, so repository access should only be granted to authorized users.
 
 ## Included areas
 
