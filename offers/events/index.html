@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Upcoming hotel events at Holiday Inn Jeddah Corniche.">
+  <meta name="theme-color" content="#00483e">
+  <title>Hotel Events | Holiday Inn Jeddah Corniche</title>
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../shared.css">
+  <script src="../shared.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../../portal/" aria-label="Back to hotel services">
+      <span class="brand-mark" aria-hidden="true">H</span>
+      <span><strong>Holiday Inn Jeddah Corniche</strong><small>Hotel events</small></span>
+    </a>
+    <div class="header-actions">
+      <button class="header-button" id="language-switch" type="button">العربية</button>
+      <a class="header-button" href="../../portal/">Hotel services</a>
+    </div>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow" id="page-eyebrow">WHAT'S HAPPENING</p>
+      <h1 id="page-title">Hotel Events</h1>
+      <p class="arabic-title" id="page-title-ar" lang="ar" dir="rtl">فعاليات الفندق</p>
+      <p class="hero-copy" id="page-description">Discover upcoming hotel activities, dining experiences and special occasions.</p>
+    </div>
+    <div class="hero-badge" aria-label="Available events"><strong id="hero-count">0</strong><span>Available</span><small lang="ar" dir="rtl">متاح</small></div>
+  </div>
+</section>
+<main class="content-shell">
+  <section class="toolbar" aria-label="Search events">
+    <label class="search"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Search events" autocomplete="off"></label>
+    <span class="filter-count" id="campaign-count">0 available</span>
+  </section>
+  <section class="campaign-grid" id="campaign-grid" aria-live="polite"><div class="loading">Loading events…</div></section>
+  <aside class="sales-note">
+    <strong>Sales content management</strong>
+    <p id="sales-copy">Sales team members can update photos and content from the Sales Content Center.</p>
+    <a id="sales-link" href="../../sales-admin/">Open Sales Content Center</a>
+  </aside>
+</main>
+<footer><span>Holiday Inn Jeddah Corniche</span><span id="footer-copy">Offers and events may change without notice.</span></footer>
+</body>
+</html>
