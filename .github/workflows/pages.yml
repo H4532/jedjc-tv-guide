@@ -24,11 +24,25 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install PDF QR tools
+        run: python -m pip install --disable-pip-version-check "PyMuPDF==1.26.3" "qrcode[pil]==8.2"
+
       - name: Restore downloadable PDF
         run: base64 --decode TV_Channel_Guide.pdf.b64 > TV_Channel_Guide.pdf
 
-      - name: Remove encoded source
-        run: rm TV_Channel_Guide.pdf.b64
+      - name: Update PDF QR and hyperlink
+        run: python tools/patch_pdf_qr.py
+
+      - name: Remove deployment source files
+        run: |
+          rm -f TV_Channel_Guide.pdf.b64
+          rm -rf tools
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
