@@ -1,0 +1,41 @@
+/* Shared Holiday Inn Jeddah Corniche Option 3 stacked-lockup branding. */
+.option3-brand {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0 !important;
+  color: inherit;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+.option3-logo {
+  display: block;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+}
+.option3-brand--main .option3-logo { height: 118px; }
+.option3-brand--portal .option3-logo,
+.option3-brand--offer .option3-logo { height: 82px; }
+.option3-brand--admin .option3-logo { height: 76px; }
+.option3-brand--tv .option3-logo { height: 108px; }
+.option3-context {
+  display: grid;
+  gap: 2px;
+  margin-inline-start: 15px;
+}
+.option3-context strong,
+.option3-context small { display: block; }
+.option3-context small {
+  color: rgba(255,255,255,.68);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+@media (max-width: 640px) {
+  .option3-brand--main .option3-logo { height: 88px; }
+  .option3-brand--portal .option3-logo,
+  .option3-brand--offer .option3-logo { height: 68px; }
+  .option3-brand--admin .option3-logo { height: 64px; }
+  .option3-brand--tv .option3-logo { height: 86px; }
+  .option3-context { display: none; }
+}
