@@ -29,14 +29,15 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Install PDF QR tools
-        run: python -m pip install --disable-pip-version-check "PyMuPDF==1.26.3" "qrcode[pil]==8.2"
+      - name: Install bilingual PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-dejavu-core libraqm0
+          python -m pip install --disable-pip-version-check "PyMuPDF==1.26.3" "qrcode[pil]==8.2"
+          python -c "from PIL import features; assert features.check('raqm'), 'Arabic text shaping support is unavailable'"
 
-      - name: Restore downloadable PDF
-        run: base64 --decode TV_Channel_Guide.pdf.b64 > TV_Channel_Guide.pdf
-
-      - name: Update PDF QR and hyperlink
-        run: python tools/patch_pdf_qr.py
+      - name: Build validated bilingual PDF
+        run: python tools/build_pdf.py
 
       - name: Remove deployment source files
         run: |
