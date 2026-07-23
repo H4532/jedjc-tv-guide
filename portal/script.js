@@ -33,6 +33,11 @@ function localized(object, key) {
   return object[`${key}${suffix}`] || object[`${key}En`] || "";
 }
 
+function setTextIfPresent(id, value) {
+  const element = document.getElementById(id);
+  if (element) element.textContent = value;
+}
+
 function safeUrl(url) {
   if (!url) return "";
   try {
@@ -59,15 +64,17 @@ function setLanguage(language) {
 function renderStaticText() {
   const hotel = state.content.hotel;
   const copy = text[state.language];
-  document.getElementById("hotel-name").textContent = localized(hotel, "name");
-  document.getElementById("portal-label").textContent = copy.portalLabel;
-  document.getElementById("welcome").textContent = localized(hotel, "welcome");
-  document.getElementById("hero-title").innerHTML = copy.heroTitle.replace("\n", "<br>");
-  document.getElementById("subtitle").textContent = localized(hotel, "subtitle");
-  document.getElementById("portal-search").placeholder = copy.search;
-  document.getElementById("assistance-title").textContent = copy.assistanceTitle;
-  document.getElementById("assistance-copy").textContent = copy.assistanceCopy;
-  document.getElementById("footer-copy").textContent = copy.footer;
+  setTextIfPresent("hotel-name", localized(hotel, "name"));
+  setTextIfPresent("portal-label", copy.portalLabel);
+  setTextIfPresent("welcome", localized(hotel, "welcome"));
+  const heroTitle = document.getElementById("hero-title");
+  if (heroTitle) heroTitle.innerHTML = copy.heroTitle.replace("\n", "<br>");
+  setTextIfPresent("subtitle", localized(hotel, "subtitle"));
+  const search = document.getElementById("portal-search");
+  if (search) search.placeholder = copy.search;
+  setTextIfPresent("assistance-title", copy.assistanceTitle);
+  setTextIfPresent("assistance-copy", copy.assistanceCopy);
+  setTextIfPresent("footer-copy", copy.footer);
 }
 
 function renderCategories() {
