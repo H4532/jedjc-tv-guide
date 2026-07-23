@@ -1,6 +1,23 @@
+function readStoredLanguage() {
+  try {
+    return window.localStorage.getItem("jedjcPortalLanguage") || "en";
+  } catch (_) {
+    return "en";
+  }
+}
+
+function storeLanguage(language) {
+  try {
+    window.localStorage.setItem("jedjcPortalLanguage", language);
+  } catch (_) {
+    // Storage may be blocked in iOS in-app/private browsers. Language switching
+    // must continue to work for the current page without persistence.
+  }
+}
+
 const state = {
   content: null,
-  language: localStorage.getItem("jedjcPortalLanguage") || "en",
+  language: readStoredLanguage(),
   activeCategory: "all",
   search: ""
 };
@@ -51,14 +68,12 @@ function safeUrl(url) {
 
 function setLanguage(language) {
   state.language = language;
-  localStorage.setItem("jedjcPortalLanguage", language);
   const isArabic = language === "ar";
   document.documentElement.lang = language;
   document.documentElement.dir = isArabic ? "rtl" : "ltr";
   setTextIfPresent("language-switch", isArabic ? "English" : "العربية");
 
-  // Service cards are the critical guest content. Render them first so an
-  // optional header or filter issue can never hide all hotel services.
+  // Critical guest content is rendered before optional persistence/UI updates.
   renderContent();
 
   try {
@@ -72,6 +87,8 @@ function setLanguage(language) {
   } catch (error) {
     console.warn("Optional category filters could not be rendered", error);
   }
+
+  storeLanguage(language);
 }
 
 function renderStaticText() {
@@ -235,13 +252,13 @@ async function loadPortal() {
     return;
   }
 
-  // Loading succeeded. From this point, UI enhancement errors must not replace
-  // the successfully loaded service data with a false loading-error message.
+  // Render immediately. Optional browser storage and UI enhancements can never
+  // suppress successfully loaded service cards.
+  renderContent();
   try {
     setLanguage(state.language);
   } catch (error) {
-    console.error("Portal interface setup failed", error);
-    renderContent();
+    console.warn("Optional portal interface setup failed", error);
   }
 }
 
