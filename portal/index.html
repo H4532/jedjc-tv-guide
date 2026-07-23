@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Holiday Inn Jeddah Corniche guest services portal.">
+  <meta name="theme-color" content="#00483e">
+  <title>Hotel Services | Holiday Inn Jeddah Corniche</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="Holiday Inn Jeddah Corniche hotel services">
+        <span class="brand-mark" aria-hidden="true">H</span>
+        <span>
+          <strong id="hotel-name">Holiday Inn Jeddah Corniche</strong>
+          <small id="portal-label">Hotel Services</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <a class="admin-link" href="admin.html" aria-label="Open portal administration">Admin</a>
+        <button id="language-switch" class="language-switch" type="button">العربية</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" id="welcome">Welcome to your stay</p>
+        <h1 id="hero-title">Hotel services<br>in one place.</h1>
+        <p id="subtitle">All hotel services, guides and offers in one place.</p>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="portal-search" type="search" autocomplete="off" placeholder="Search hotel services" aria-label="Search hotel services">
+        </label>
+      </div>
+      <div class="hero-aside">
+        <span>One QR</span>
+        <strong>All services</strong>
+        <small lang="ar" dir="rtl">رمز واحد لجميع الخدمات</small>
+      </div>
+    </section>
+
+    <nav class="category-pills" id="category-pills" aria-label="Hotel service categories"></nav>
+
+    <section id="portal-content" class="portal-content" aria-live="polite"></section>
+
+    <section class="assistance">
+      <div>
+        <span class="assistance-icon" aria-hidden="true">☎</span>
+        <div>
+          <strong id="assistance-title">Need assistance?</strong>
+          <p id="assistance-copy">Contact Reception from your room phone.</p>
+        </div>
+      </div>
+      <a id="reception-link" href="tel:0">Reception <span id="reception-number">0</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <span id="footer-copy">Available throughout your stay</span>
+    <a href="../">TV Channel Guide</a>
+  </footer>
+
+  <noscript>This portal requires JavaScript to display the current hotel services.</noscript>
+</body>
+</html>
