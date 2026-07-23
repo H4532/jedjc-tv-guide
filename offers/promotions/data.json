@@ -1,0 +1,33 @@
+{
+  "pageTitleEn": "Current Promotions",
+  "pageTitleAr": "العروض الحالية",
+  "eyebrowEn": "Offers & Experiences",
+  "eyebrowAr": "العروض والتجارب",
+  "descriptionEn": "Discover current hotel, dining and seasonal promotions.",
+  "descriptionAr": "اكتشف عروض الفندق والمطاعم والعروض الموسمية الحالية.",
+  "items": [
+    {
+      "id": "promotion-template",
+      "titleEn": "Promotion title",
+      "titleAr": "عنوان العرض",
+      "descriptionEn": "Replace this text with the approved promotion description.",
+      "descriptionAr": "استبدل هذا النص بوصف العرض المعتمد.",
+      "image": "../placeholder.svg",
+      "imageAltEn": "Promotion image",
+      "imageAltAr": "صورة العرض",
+      "tagEn": "Promotion",
+      "tagAr": "عرض",
+      "startDate": "",
+      "endDate": "",
+      "locationEn": "Holiday Inn Jeddah Corniche",
+      "locationAr": "هوليداي إن جدة الكورنيش",
+      "timeEn": "",
+      "timeAr": "",
+      "ctaLabelEn": "Learn more",
+      "ctaLabelAr": "اعرف المزيد",
+      "ctaUrl": "",
+      "featured": false,
+      "active": false
+    }
+  ]
+}
