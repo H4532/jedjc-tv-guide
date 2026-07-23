@@ -30,7 +30,7 @@ const text = {
 
 function localized(object, key) {
   const suffix = state.language === "ar" ? "Ar" : "En";
-  return object[`${key}${suffix}`] || object[`${key}En`] || "";
+  return object?.[`${key}${suffix}`] || object?.[`${key}En`] || "";
 }
 
 function setTextIfPresent(id, value) {
@@ -55,13 +55,27 @@ function setLanguage(language) {
   const isArabic = language === "ar";
   document.documentElement.lang = language;
   document.documentElement.dir = isArabic ? "rtl" : "ltr";
-  document.getElementById("language-switch").textContent = isArabic ? "English" : "العربية";
-  renderStaticText();
-  renderCategories();
+  setTextIfPresent("language-switch", isArabic ? "English" : "العربية");
+
+  // Service cards are the critical guest content. Render them first so an
+  // optional header or filter issue can never hide all hotel services.
   renderContent();
+
+  try {
+    renderStaticText();
+  } catch (error) {
+    console.warn("Optional portal text could not be updated", error);
+  }
+
+  try {
+    renderCategories();
+  } catch (error) {
+    console.warn("Optional category filters could not be rendered", error);
+  }
 }
 
 function renderStaticText() {
+  if (!state.content?.hotel) return;
   const hotel = state.content.hotel;
   const copy = text[state.language];
   setTextIfPresent("hotel-name", localized(hotel, "name"));
@@ -79,6 +93,7 @@ function renderStaticText() {
 
 function renderCategories() {
   const pills = document.getElementById("category-pills");
+  if (!pills || !Array.isArray(state.content?.categories)) return;
   const copy = text[state.language];
   pills.replaceChildren();
 
@@ -101,8 +116,12 @@ function renderCategories() {
 
 function selectCategory(categoryId) {
   state.activeCategory = categoryId;
-  renderCategories();
   renderContent();
+  try {
+    renderCategories();
+  } catch (error) {
+    console.warn("Category filters could not be refreshed", error);
+  }
 }
 
 function matchesSearch(item) {
@@ -162,6 +181,7 @@ function createServiceCard(item) {
 
 function renderContent() {
   const root = document.getElementById("portal-content");
+  if (!root || !Array.isArray(state.content?.categories)) return;
   root.replaceChildren();
   let visibleCount = 0;
 
@@ -202,23 +222,35 @@ function renderContent() {
 }
 
 async function loadPortal() {
+  const root = document.getElementById("portal-content");
   try {
-    const response = await fetch(`content.json?v=${Date.now()}`, { cache: "no-store" });
+    const response = await fetch(new URL("content.json", window.location.href), { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    state.content = await response.json();
+    const content = await response.json();
+    if (!content || !Array.isArray(content.categories)) throw new Error("Invalid portal content structure");
+    state.content = content;
+  } catch (error) {
+    console.error("Portal content request failed", error);
+    if (root) root.innerHTML = '<div class="empty-state">The hotel-services portal could not be loaded. Please contact Reception.</div>';
+    return;
+  }
+
+  // Loading succeeded. From this point, UI enhancement errors must not replace
+  // the successfully loaded service data with a false loading-error message.
+  try {
     setLanguage(state.language);
   } catch (error) {
-    console.error(error);
-    document.getElementById("portal-content").innerHTML = '<div class="empty-state">The hotel-services portal could not be loaded. Please contact Reception.</div>';
+    console.error("Portal interface setup failed", error);
+    renderContent();
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("language-switch").addEventListener("click", () => {
+  document.getElementById("language-switch")?.addEventListener("click", () => {
     setLanguage(state.language === "ar" ? "en" : "ar");
   });
 
-  document.getElementById("portal-search").addEventListener("input", (event) => {
+  document.getElementById("portal-search")?.addEventListener("input", (event) => {
     state.search = event.target.value.trim().toLowerCase();
     renderContent();
   });
