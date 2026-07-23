@@ -1,0 +1,149 @@
+{
+  "hotel": {
+    "nameEn": "Holiday Inn Jeddah Corniche",
+    "nameAr": "هوليداي إن جدة الكورنيش",
+    "welcomeEn": "Welcome to your stay",
+    "welcomeAr": "أهلاً بكم في إقامتكم",
+    "subtitleEn": "All hotel services, guides and offers in one place.",
+    "subtitleAr": "جميع خدمات الفندق والأدلة والعروض في مكان واحد.",
+    "reception": "0"
+  },
+  "categories": [
+    {
+      "id": "entertainment",
+      "titleEn": "Entertainment",
+      "titleAr": "الترفيه",
+      "icon": "📺",
+      "items": [
+        {
+          "titleEn": "TV Channel Guide",
+          "titleAr": "دليل قنوات التلفزيون",
+          "descriptionEn": "Search the complete bilingual in-room channel lineup.",
+          "descriptionAr": "ابحث في القائمة الكاملة لقنوات التلفزيون داخل الغرفة.",
+          "icon": "📡",
+          "url": "../",
+          "badgeEn": "75 channels",
+          "badgeAr": "75 قناة",
+          "featured": true,
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "dining",
+      "titleEn": "Dining",
+      "titleAr": "المطاعم",
+      "icon": "🍽️",
+      "items": [
+        {
+          "titleEn": "Room Service Menu",
+          "titleAr": "قائمة خدمة الغرف",
+          "descriptionEn": "Browse the current in-room dining menu.",
+          "descriptionAr": "تصفح قائمة الطعام الحالية داخل الغرفة.",
+          "icon": "🥘",
+          "url": "https://ihgqrmenu.com/?version=2290",
+          "badgeEn": "Popular",
+          "badgeAr": "الأكثر طلباً",
+          "featured": true,
+          "active": true
+        },
+        {
+          "titleEn": "Hotel Pricing List",
+          "titleAr": "قائمة أسعار الفندق",
+          "descriptionEn": "View current hotel service and dining prices.",
+          "descriptionAr": "عرض أسعار خدمات الفندق والمطاعم الحالية.",
+          "icon": "🧾",
+          "url": "https://ihgqrmenu.com/content/hotel-pricing-list",
+          "badgeEn": "",
+          "badgeAr": "",
+          "featured": false,
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "titleEn": "Hotel Services",
+      "titleAr": "خدمات الفندق",
+      "icon": "🛎️",
+      "items": [
+        {
+          "titleEn": "Laundry Services",
+          "titleAr": "خدمات المغسلة",
+          "descriptionEn": "View the laundry list and service information.",
+          "descriptionAr": "عرض قائمة المغسلة ومعلومات الخدمة.",
+          "icon": "👔",
+          "url": "https://ihgqrmenu.com/content/laundry",
+          "badgeEn": "",
+          "badgeAr": "",
+          "featured": true,
+          "active": true
+        },
+        {
+          "titleEn": "Important Numbers",
+          "titleAr": "الأرقام المهمة",
+          "descriptionEn": "Hotel departments and useful contact numbers.",
+          "descriptionAr": "أرقام أقسام الفندق وجهات الاتصال المفيدة.",
+          "icon": "☎️",
+          "url": "https://ihgqrmenu.com/?version=2351",
+          "badgeEn": "",
+          "badgeAr": "",
+          "featured": false,
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "offers",
+      "titleEn": "Offers & Events",
+      "titleAr": "العروض والفعاليات",
+      "icon": "🎉",
+      "items": [
+        {
+          "titleEn": "Current Promotions",
+          "titleAr": "العروض الحالية",
+          "descriptionEn": "This area is ready for hotel promotions and seasonal offers.",
+          "descriptionAr": "هذا القسم جاهز لعروض الفندق والعروض الموسمية.",
+          "icon": "🏷️",
+          "url": "",
+          "badgeEn": "Coming soon",
+          "badgeAr": "قريباً",
+          "featured": false,
+          "active": true
+        },
+        {
+          "titleEn": "Hotel Events",
+          "titleAr": "فعاليات الفندق",
+          "descriptionEn": "Upcoming events can be published here at any time.",
+          "descriptionAr": "يمكن نشر الفعاليات القادمة هنا في أي وقت.",
+          "icon": "📅",
+          "url": "",
+          "badgeEn": "Coming soon",
+          "badgeAr": "قريباً",
+          "featured": false,
+          "active": true
+        }
+      ]
+    },
+    {
+      "id": "discover",
+      "titleEn": "Discover Saudi",
+      "titleAr": "اكتشف السعودية",
+      "icon": "📍",
+      "items": [
+        {
+          "titleEn": "Visit Saudi",
+          "titleAr": "روح السعودية",
+          "descriptionEn": "Explore destinations, experiences and travel information.",
+          "descriptionAr": "اكتشف الوجهات والتجارب ومعلومات السفر.",
+          "icon": "🇸🇦",
+          "url": "https://www.visitsaudi.com/ar",
+          "badgeEn": "",
+          "badgeAr": "",
+          "featured": false,
+          "active": true
+        }
+      ]
+    }
+  ]
+}
