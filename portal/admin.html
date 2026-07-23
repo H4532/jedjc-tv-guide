@@ -12,13 +12,14 @@
   <style>
     :root{--forest:#00483e;--deep:#00372f;--green:#4c9e2a;--cream:#f6f1e7;--ink:#17322d;--muted:#687873;--line:#d9e2df;--white:#fff}
     *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Tahoma,sans-serif}a{color:inherit;text-decoration:none}
-    header{background:var(--deep);color:#fff}.bar,main{width:min(920px,calc(100% - 32px));margin:auto}.bar{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px}.mark{display:grid;width:46px;height:46px;place-items:center;border-radius:15px 15px 15px 5px;background:var(--green);font-family:Georgia,serif;font-size:29px;font-style:italic}.brand strong,.brand small{display:block}.brand small{margin-top:3px;color:rgba(255,255,255,.68);font-size:11px;letter-spacing:.12em;text-transform:uppercase}.header-actions{display:flex;align-items:center;gap:9px}.back{padding:10px 14px;border:1px solid rgba(255,255,255,.24);border-radius:11px}
+    header{background:var(--deep);color:#fff}.bar,main{width:min(920px,calc(100% - 32px));margin:auto}.bar{min-height:96px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px}.header-actions{display:flex;align-items:center;gap:9px}.back{padding:10px 14px;border:1px solid rgba(255,255,255,.24);border-radius:11px}
     main{padding:42px 0 70px}.eyebrow{margin:0 0 10px;color:var(--green);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}h1{margin:0;font-family:Georgia,serif;font-size:clamp(38px,6vw,62px);font-weight:400;line-height:1}main>p{max-width:720px;color:var(--muted);font-size:16px;line-height:1.65}
     .notice{margin:25px 0;padding:18px;border:1px solid #b7d8aa;border-radius:15px;background:#f0f8ec;line-height:1.55}.notice strong{display:block;margin-bottom:5px;color:#2f6f18}
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:26px}.card{padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:0 8px 24px rgba(0,55,47,.05)}.card.sales{border-color:#b7d8aa;background:linear-gradient(135deg,#fff,#f3faef)}.card span{font-size:28px}.card h2{margin:14px 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}.button{display:inline-flex;margin-top:18px;padding:12px 16px;border-radius:11px;background:var(--forest);color:#fff;font-weight:700}.button.secondary{border:1px solid var(--line);background:#fff;color:var(--forest)}
     .steps{margin-top:26px;padding:24px;border-radius:18px;background:var(--deep);color:#fff}.steps h2{margin-top:0}.steps ol{margin:0;padding-inline-start:22px;color:rgba(255,255,255,.78);line-height:1.75}.steps code{padding:2px 6px;border-radius:5px;background:rgba(255,255,255,.1);color:#fff}
     footer{padding:24px;text-align:center;color:var(--muted);font-size:12px}@media(max-width:650px){.grid{grid-template-columns:1fr}.bar,main{width:min(100% - 20px,920px)}.bar{align-items:flex-start;padding:14px 0}.header-actions{flex-direction:column;align-items:stretch}.back,.admin-logout{text-align:center;font-size:12px}}
   </style>
+  <link rel="stylesheet" href="../brand-option3.css">
 </head>
 <body class="auth-pending">
 <section class="admin-auth-gate" id="admin-auth-gate" hidden aria-label="Administrator login">
@@ -37,7 +38,10 @@
 </section>
 <header>
   <div class="bar">
-    <div class="brand"><span class="mark">H</span><span><strong>Guest Portal</strong><small>Administration</small></span></div>
+    <div class="brand option3-brand option3-brand--admin">
+      <img class="option3-logo option3-logo--white" src="../assets/holiday-inn-corniche-lockup.webp" alt="Holiday Inn Jeddah Corniche by IHG">
+      <span class="option3-context"><strong>Guest Portal</strong><small>Administration</small></span>
+    </div>
     <div class="header-actions"><a class="back" href="./">Guest preview</a><button class="admin-logout" data-admin-logout type="button">Sign out</button></div>
   </div>
 </header>
@@ -52,36 +56,11 @@
   </div>
 
   <section class="grid">
-    <article class="card sales">
-      <span>📣</span>
-      <h2>Sales Content Center</h2>
-      <p>Manage Current Promotions and Hotel Events, upload desktop and mobile photos, set dates, and preview the public pages.</p>
-      <a class="button" href="../sales-admin/">Open Sales Content Center</a>
-    </article>
-    <article class="card">
-      <span>✏️</span>
-      <h2>Edit links and categories</h2>
-      <p>Add, remove, reorder, activate or disable general services. Update English and Arabic titles, descriptions, badges and destinations.</p>
-      <a class="button" href="https://github.com/H4532/jedjc-tv-guide/edit/main/portal/content.json" target="_blank" rel="noopener">Open content editor</a>
-    </article>
-    <article class="card">
-      <span>👁️</span>
-      <h2>Preview guest portal</h2>
-      <p>Review the live mobile page after GitHub Pages completes the latest deployment.</p>
-      <a class="button secondary" href="./" target="_blank">Open guest portal</a>
-    </article>
-    <article class="card">
-      <span>📺</span>
-      <h2>Preview TV welcome page</h2>
-      <p>Use the TV-optimized screen as the design reference for the Triple Play welcome page.</p>
-      <a class="button secondary" href="../tv-welcome/" target="_blank">Open TV preview</a>
-    </article>
-    <article class="card">
-      <span>▦</span>
-      <h2>Permanent QR code</h2>
-      <p>Open the QR that always directs guests to this portal. Content can change without replacing the QR.</p>
-      <a class="button secondary" href="../portal-qr.svg" target="_blank">Open QR code</a>
-    </article>
+    <article class="card sales"><span>📣</span><h2>Sales Content Center</h2><p>Manage Current Promotions and Hotel Events, upload desktop and mobile photos, set dates, and preview the public pages.</p><a class="button" href="../sales-admin/">Open Sales Content Center</a></article>
+    <article class="card"><span>✏️</span><h2>Edit links and categories</h2><p>Add, remove, reorder, activate or disable general services. Update English and Arabic titles, descriptions, badges and destinations.</p><a class="button" href="https://github.com/H4532/jedjc-tv-guide/edit/main/portal/content.json" target="_blank" rel="noopener">Open content editor</a></article>
+    <article class="card"><span>👁️</span><h2>Preview guest portal</h2><p>Review the live mobile page after GitHub Pages completes the latest deployment.</p><a class="button secondary" href="./" target="_blank">Open guest portal</a></article>
+    <article class="card"><span>📺</span><h2>Preview TV welcome page</h2><p>Use the TV-optimized screen as the design reference for the Triple Play welcome page.</p><a class="button secondary" href="../tv-welcome/" target="_blank">Open TV preview</a></article>
+    <article class="card"><span>▦</span><h2>Permanent QR code</h2><p>Open the QR that always directs guests to this portal. Content can change without replacing the QR.</p><a class="button secondary" href="../portal-qr.svg" target="_blank">Open QR code</a></article>
   </section>
 
   <section class="steps">
