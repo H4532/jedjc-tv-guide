@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1738">
+  <title>TV Welcome Page | Holiday Inn Jeddah Corniche</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="screen">
+    <header class="topbar">
+      <a class="brand" href="../portal/">
+        <span class="brand-mark">H</span>
+        <span><strong>Holiday Inn</strong><small>Jeddah Corniche</small></span>
+      </a>
+      <time id="clock"></time>
+    </header>
+
+    <main>
+      <section class="welcome-panel">
+        <p>WELCOME</p>
+        <h1>Guest</h1>
+        <span>We hope you enjoy your stay with us</span>
+        <b lang="ar" dir="rtl">نتمنى لكم إقامة سعيدة معنا</b>
+      </section>
+
+      <section class="actions" aria-label="Hotel television menu">
+        <a href="../" class="action"><span>📺</span><strong>Live TV</strong><small lang="ar" dir="rtl">التلفزيون</small></a>
+        <a href="../portal/#services" class="action"><span>🛎️</span><strong>Hotel Services</strong><small lang="ar" dir="rtl">خدمات الفندق</small></a>
+        <a href="../portal/#dining" class="action"><span>🍽️</span><strong>Dining & Offers</strong><small lang="ar" dir="rtl">المطاعم والعروض</small></a>
+        <a href="../portal/" class="action"><span>ℹ️</span><strong>Room Guide</strong><small lang="ar" dir="rtl">دليل الغرفة</small></a>
+      </section>
+
+      <section class="qr-panel">
+        <div class="qr-card"><img src="../portal-qr.svg" alt="QR code for all hotel services"></div>
+        <div>
+          <p>SCAN FOR ALL HOTEL SERVICES</p>
+          <h2>One QR. Every service.</h2>
+          <h3 lang="ar" dir="rtl">امسح الرمز لجميع خدمات الفندق</h3>
+          <div class="contact"><span>☎ Reception 0</span><span>•</span><span>English / العربية</span></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Green Key Certified</span>
+      <span>Holiday Inn Jeddah Corniche</span>
+    </footer>
+  </div>
+  <script>
+    function updateClock(){
+      document.getElementById('clock').textContent=new Date().toLocaleString('en-GB',{weekday:'long',day:'2-digit',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
+    }
+    updateClock();setInterval(updateClock,30000);
+  </script>
+</body>
+</html>
