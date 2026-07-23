@@ -102,25 +102,25 @@
         {
           "titleEn": "Current Promotions",
           "titleAr": "العروض الحالية",
-          "descriptionEn": "This area is ready for hotel promotions and seasonal offers.",
-          "descriptionAr": "هذا القسم جاهز لعروض الفندق والعروض الموسمية.",
+          "descriptionEn": "View current hotel, dining and seasonal promotions.",
+          "descriptionAr": "عرض عروض الفندق والمطاعم والعروض الموسمية الحالية.",
           "icon": "🏷️",
-          "url": "",
-          "badgeEn": "Coming soon",
-          "badgeAr": "قريباً",
-          "featured": false,
+          "url": "../offers/promotions/",
+          "badgeEn": "Updated by Sales",
+          "badgeAr": "تحديث فريق المبيعات",
+          "featured": true,
           "active": true
         },
         {
           "titleEn": "Hotel Events",
           "titleAr": "فعاليات الفندق",
-          "descriptionEn": "Upcoming events can be published here at any time.",
-          "descriptionAr": "يمكن نشر الفعاليات القادمة هنا في أي وقت.",
+          "descriptionEn": "Discover upcoming hotel activities and special occasions.",
+          "descriptionAr": "اكتشف أنشطة الفندق والمناسبات الخاصة القادمة.",
           "icon": "📅",
-          "url": "",
-          "badgeEn": "Coming soon",
-          "badgeAr": "قريباً",
-          "featured": false,
+          "url": "../offers/events/",
+          "badgeEn": "Updated by Sales",
+          "badgeAr": "تحديث فريق المبيعات",
+          "featured": true,
           "active": true
         }
       ]
