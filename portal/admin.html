@@ -7,39 +7,55 @@
   <meta name="theme-color" content="#00483e">
   <title>Portal Administration | Holiday Inn Jeddah Corniche</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../admin-auth.css">
+  <script src="../admin-auth.js" defer></script>
   <style>
     :root{--forest:#00483e;--deep:#00372f;--green:#4c9e2a;--cream:#f6f1e7;--ink:#17322d;--muted:#687873;--line:#d9e2df;--white:#fff}
     *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Tahoma,sans-serif}a{color:inherit;text-decoration:none}
-    header{background:var(--deep);color:#fff}.bar,main{width:min(920px,calc(100% - 32px));margin:auto}.bar{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px}.mark{display:grid;width:46px;height:46px;place-items:center;border-radius:15px 15px 15px 5px;background:var(--green);font-family:Georgia,serif;font-size:29px;font-style:italic}.brand strong,.brand small{display:block}.brand small{margin-top:3px;color:rgba(255,255,255,.68);font-size:11px;letter-spacing:.12em;text-transform:uppercase}.back{padding:10px 14px;border:1px solid rgba(255,255,255,.24);border-radius:11px}
+    header{background:var(--deep);color:#fff}.bar,main{width:min(920px,calc(100% - 32px));margin:auto}.bar{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px}.mark{display:grid;width:46px;height:46px;place-items:center;border-radius:15px 15px 15px 5px;background:var(--green);font-family:Georgia,serif;font-size:29px;font-style:italic}.brand strong,.brand small{display:block}.brand small{margin-top:3px;color:rgba(255,255,255,.68);font-size:11px;letter-spacing:.12em;text-transform:uppercase}.header-actions{display:flex;align-items:center;gap:9px}.back{padding:10px 14px;border:1px solid rgba(255,255,255,.24);border-radius:11px}
     main{padding:42px 0 70px}.eyebrow{margin:0 0 10px;color:var(--green);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}h1{margin:0;font-family:Georgia,serif;font-size:clamp(38px,6vw,62px);font-weight:400;line-height:1}main>p{max-width:720px;color:var(--muted);font-size:16px;line-height:1.65}
     .notice{margin:25px 0;padding:18px;border:1px solid #b7d8aa;border-radius:15px;background:#f0f8ec;line-height:1.55}.notice strong{display:block;margin-bottom:5px;color:#2f6f18}
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:26px}.card{padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--white);box-shadow:0 8px 24px rgba(0,55,47,.05)}.card.sales{border-color:#b7d8aa;background:linear-gradient(135deg,#fff,#f3faef)}.card span{font-size:28px}.card h2{margin:14px 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}.button{display:inline-flex;margin-top:18px;padding:12px 16px;border-radius:11px;background:var(--forest);color:#fff;font-weight:700}.button.secondary{border:1px solid var(--line);background:#fff;color:var(--forest)}
     .steps{margin-top:26px;padding:24px;border-radius:18px;background:var(--deep);color:#fff}.steps h2{margin-top:0}.steps ol{margin:0;padding-inline-start:22px;color:rgba(255,255,255,.78);line-height:1.75}.steps code{padding:2px 6px;border-radius:5px;background:rgba(255,255,255,.1);color:#fff}
-    footer{padding:24px;text-align:center;color:var(--muted);font-size:12px}@media(max-width:650px){.grid{grid-template-columns:1fr}.bar,main{width:min(100% - 20px,920px)}}
+    footer{padding:24px;text-align:center;color:var(--muted);font-size:12px}@media(max-width:650px){.grid{grid-template-columns:1fr}.bar,main{width:min(100% - 20px,920px)}.bar{align-items:flex-start;padding:14px 0}.header-actions{flex-direction:column;align-items:stretch}.back,.admin-logout{text-align:center;font-size:12px}}
   </style>
 </head>
-<body>
+<body class="auth-pending">
+<section class="admin-auth-gate" id="admin-auth-gate" hidden aria-label="Administrator login">
+  <div class="admin-auth-card">
+    <div class="admin-auth-brand"><span class="admin-auth-mark">H</span><span><strong>Portal Administration</strong><small>Holiday Inn Jeddah Corniche</small></span></div>
+    <h1>Administrator sign in</h1>
+    <p>Enter the fixed administration credentials to open this page.</p>
+    <form class="admin-auth-form" id="admin-auth-form">
+      <label>Username<input id="admin-username" type="text" autocomplete="username" required></label>
+      <label>Password<input id="admin-password" type="password" autocomplete="current-password" required></label>
+      <p class="admin-auth-error" id="admin-auth-error" role="alert"></p>
+      <button class="admin-auth-submit" type="submit">Sign in</button>
+    </form>
+    <div class="admin-auth-note">Publishing actions remain protected by the authorized GitHub account and repository permissions.</div>
+  </div>
+</section>
 <header>
   <div class="bar">
     <div class="brand"><span class="mark">H</span><span><strong>Guest Portal</strong><small>Administration</small></span></div>
-    <a class="back" href="./">Guest preview</a>
+    <div class="header-actions"><a class="back" href="./">Guest preview</a><button class="admin-logout" data-admin-logout type="button">Sign out</button></div>
   </div>
 </header>
 <main>
-  <p class="eyebrow">GitHub-secured management</p>
+  <p class="eyebrow">Protected management</p>
   <h1>Manage portal content</h1>
-  <p>The guest website is public, but publishing changes is protected by GitHub account and repository permissions. Only the repository owner or approved collaborators can save updates.</p>
+  <p>The guest website remains public. This administration landing page now requires the fixed login, while publishing changes additionally requires an approved GitHub account with repository permission.</p>
 
   <div class="notice">
     <strong>Current administration</strong>
-    General hotel-service links are managed from <code>portal/content.json</code>. Promotions and hotel events now have dedicated Sales-managed pages with photo upload support.
+    General hotel-service links are managed from <code>portal/content.json</code>. Promotions and hotel events have dedicated Sales-managed pages with two-image responsive support.
   </div>
 
   <section class="grid">
     <article class="card sales">
       <span>📣</span>
       <h2>Sales Content Center</h2>
-      <p>Manage Current Promotions and Hotel Events, upload approved photos, set dates, and preview the public pages.</p>
+      <p>Manage Current Promotions and Hotel Events, upload desktop and mobile photos, set dates, and preview the public pages.</p>
       <a class="button" href="../sales-admin/">Open Sales Content Center</a>
     </article>
     <article class="card">
