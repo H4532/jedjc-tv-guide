@@ -73,17 +73,17 @@ button { cursor: pointer; }
 .admin-link { display: inline-flex; align-items: center; }
 .admin-link:hover, .language-switch:hover { border-color: var(--forest); }
 
-main { padding: 30px 0 68px; }
+main { padding: 22px 0 68px; }
 .hero {
   position: relative;
   overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 30px;
+  gap: 24px;
   align-items: center;
-  min-height: 360px;
-  padding: clamp(32px, 6vw, 64px);
-  border-radius: 28px;
+  min-height: 275px;
+  padding: 34px 46px;
+  border-radius: 24px;
   color: var(--white);
   background:
     radial-gradient(circle at 82% 20%, rgba(199, 164, 93, 0.28), transparent 22rem),
@@ -93,9 +93,9 @@ main { padding: 30px 0 68px; }
 .hero::after {
   position: absolute;
   right: -7rem;
-  bottom: -12rem;
-  width: 31rem;
-  height: 31rem;
+  bottom: -13rem;
+  width: 29rem;
+  height: 29rem;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 50%;
   content: "";
@@ -104,13 +104,13 @@ main { padding: 30px 0 68px; }
 .hero-copy, .hero-aside { position: relative; z-index: 1; }
 .hero-language-switch {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 16px;
+  right: 16px;
   z-index: 5;
-  min-height: 48px;
-  padding: 0 18px;
+  min-height: 42px;
+  padding: 0 16px;
   border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 14px;
+  border-radius: 13px;
   background: rgba(255, 255, 255, 0.14);
   color: var(--white);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
@@ -123,49 +123,49 @@ main { padding: 30px 0 68px; }
   color: var(--forest);
   outline: none;
 }
-.eyebrow { margin: 0 0 14px; color: #d4e8e2; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+.eyebrow { margin: 0 0 10px; color: #d4e8e2; font-size: 10px; font-weight: 700; letter-spacing: 0.19em; text-transform: uppercase; }
 .hero h1 {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(46px, 7vw, 76px);
+  font-size: clamp(42px, 5.8vw, 64px);
   font-weight: 400;
-  line-height: 0.98;
+  line-height: 0.96;
   letter-spacing: -0.045em;
 }
-.hero-copy > p:last-of-type { max-width: 620px; margin: 22px 0 0; color: rgba(255, 255, 255, 0.76); font-size: 16px; line-height: 1.65; }
+.hero-copy > p:last-of-type { max-width: 620px; margin: 14px 0 0; color: rgba(255, 255, 255, 0.78); font-size: 15px; line-height: 1.5; }
 .search-box {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 10px;
   max-width: 620px;
-  min-height: 56px;
-  margin-top: 28px;
-  padding: 0 17px;
-  border-radius: 14px;
+  min-height: 50px;
+  margin-top: 20px;
+  padding: 0 16px;
+  border-radius: 13px;
   background: var(--white);
   color: var(--ink);
 }
-.search-box > span { color: var(--forest); font-size: 28px; transform: rotate(-18deg); }
+.search-box > span { color: var(--forest); font-size: 25px; transform: rotate(-18deg); }
 .search-box input { min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); }
 .hero-aside {
   display: grid;
-  width: 190px;
-  min-height: 190px;
+  width: 150px;
+  min-height: 150px;
   place-content: center;
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 50%;
   text-align: center;
 }
-.hero-aside span { color: rgba(255, 255, 255, 0.7); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; }
-.hero-aside strong { margin-top: 8px; color: #f7e8c5; font-family: Georgia, serif; font-size: 27px; font-weight: 400; }
-.hero-aside small { margin-top: 8px; color: rgba(255, 255, 255, 0.72); }
+.hero-aside span { color: rgba(255, 255, 255, 0.7); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
+.hero-aside strong { margin-top: 6px; color: #f7e8c5; font-family: Georgia, serif; font-size: 23px; font-weight: 400; }
+.hero-aside small { margin-top: 6px; color: rgba(255, 255, 255, 0.72); font-size: 10px; }
 
 .category-pills {
   display: flex;
   gap: 9px;
   overflow-x: auto;
-  margin: 24px 0 4px;
+  margin: 20px 0 4px;
   padding-bottom: 5px;
   scrollbar-width: thin;
 }
@@ -243,24 +243,27 @@ footer a { color: var(--forest); font-weight: 700; }
 html[dir="rtl"] body { font-family: Tahoma, Arial, sans-serif; }
 html[dir="rtl"] .hero h1, html[dir="rtl"] .section-heading h2 { font-family: Tahoma, Arial, sans-serif; letter-spacing: 0; }
 html[dir="rtl"] .search-box > span { transform: rotate(18deg); }
-html[dir="rtl"] .hero-language-switch { right: auto; left: 20px; }
+html[dir="rtl"] .hero-language-switch { right: auto; left: 16px; }
 
 @media (max-width: 760px) {
   .header-inner, main, footer { width: min(100% - 20px, 1120px); }
   .admin-link { display: none; }
-  main { padding-top: 12px; }
-  .hero { grid-template-columns: 1fr; min-height: auto; padding: 74px 22px 30px; border-radius: 20px; }
+  main { padding-top: 10px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; padding: 66px 20px 24px; border-radius: 18px; }
   .hero-aside { display: none; }
   .hero-language-switch {
-    top: 16px;
-    right: 16px;
-    min-height: 44px;
-    padding: 0 16px;
+    top: 12px;
+    right: 12px;
+    min-height: 40px;
+    padding: 0 14px;
     border-color: rgba(255, 255, 255, 0.72);
     background: rgba(255, 255, 255, 0.18);
-    font-size: 16px;
+    font-size: 15px;
   }
-  html[dir="rtl"] .hero-language-switch { right: auto; left: 16px; }
+  html[dir="rtl"] .hero-language-switch { right: auto; left: 12px; }
+  .hero h1 { font-size: clamp(40px, 12vw, 54px); }
+  .hero-copy > p:last-of-type { margin-top: 12px; font-size: 14px; }
+  .search-box { min-height: 48px; margin-top: 18px; }
   .service-grid { grid-template-columns: 1fr; }
   .assistance { align-items: stretch; flex-direction: column; }
   .assistance > a { text-align: center; }
@@ -269,6 +272,9 @@ html[dir="rtl"] .hero-language-switch { right: auto; left: 20px; }
 
 @media (max-width: 440px) {
   .brand strong { max-width: 185px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hero { padding: 62px 18px 22px; }
+  .hero h1 { font-size: 40px; }
+  .eyebrow { margin-bottom: 8px; }
   .service-card { grid-template-columns: 46px minmax(0, 1fr) auto; padding: 15px; }
   .service-icon { width: 46px; height: 46px; }
 }
